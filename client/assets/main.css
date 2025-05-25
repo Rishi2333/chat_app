@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5; /* Soft gray background */
+  color: #333;
+  line-height: 1.6;
+}
+
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.chat {
+  width: clamp(320px, 70%, 600px); /* Responsive width */
+  height: clamp(450px, 85vh, 700px); /* Responsive height */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Name Input Styling */
+.input-name-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 15px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.chat-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-name-container input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.input-name-container button {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.input-name-container button:hover {
+  background-color: #0056b3;
+}
+
+.input-name-container button:disabled {
+  background-color: #a0cfff;
+  cursor: not-allowed;
+}
+
+/* Message Area Styling */
+.message-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; /* Enables scrolling for messages */
+  display: flex;
+  flex-direction: column-reverse; /* New messages appear at the bottom */
+  gap: 12px;
+}
+
+.message-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Default to left alignment */
+}
+
+.user-message-wrapper {
+  align-items: flex-end; /* Aligns user's messages to the right */
+}
+
+.message-username {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 2px;
+  font-style: italic;
+}
+
+.user-message-wrapper .message-username {
+  color: #0056b3;
+}
+
+.message-item {
+  padding: 10px 15px;
+  border-radius: 18px; /* Creates a bubble shape */
+  max-width: 75%;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.message-item:not(.user-message) { /* Messages from others */
+  background-color: #e4e6eb;
+  color: #050505;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.user-message { /* Your messages */
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* Message Input Area Styling */
+.input-area {
+  display: flex;
+  padding: 15px 20px;
+  border-top: 1px solid #e0e0e0; /* Separator line */
+  background-color: #f9f9f9;
+  gap: 10px;
+}
+
+.input-area input[type="text"] {
+  flex-grow: 1; /* Input field takes available space */
+  padding: 10px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px; /* Pill shape */
+  font-size: 15px;
+  outline-color: #007bff;
+}
+
+.input-area button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.input-area button:hover {
+  background-color: #0056b3;
+}
+
+.input-area button:disabled {
+  background-color: #a0cfff;
+  cursor: not-allowed;
+}
+
+/* Custom Scrollbar */
+.message-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.message-container::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+
+.message-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
