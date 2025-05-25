@@ -1,6 +1,6 @@
 # Chat App
 
-A simple chat application with a Rust server and web client.
+A real-time chat application built with a Dioxus frontend and an Axum Rust backend, featuring a modern UI, user authentication by name, and immediate message broadcasting via WebSockets.
 
 ## Setup & Run
 
